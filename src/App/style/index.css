@@ -1,0 +1,287 @@
+@charset "utf-8";
+@import "./checkbox.css";
+:root{
+    --co1:#1f3b44 ; 
+    --co2:#f7efef ;
+    --bg:#b8c7a7;
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+*::before, *::after{box-sizing:border-box;}
+
+
+#root{
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;position: relative;
+    z-index: 1;
+    
+}
+
+#todo_app_con{
+    
+    height: 70%;
+    min-width: 40%; 
+    margin-top: 4rem;
+    position: relative;
+}
+
+#todo_app_con>*{
+margin-bottom: 1rem;
+}
+
+
+#todo_header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--co1);
+    font-style: italic;
+    font-weight: 800;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+#todo_input_con{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+#todo_input_con button{
+    width: 30%;
+}
+
+.input{
+    background-color: transparent;
+    border: 1px solid var(--co1);
+    border-radius: 5px 0px 0px 5px;
+    padding: 0.4rem 1rem;
+    color: var(--co1);
+    font-style: italic;
+    font-weight: 500;
+    height: 100%;
+    width: 70%;
+}
+
+.input:focus{
+    outline: none;
+
+}
+
+
+
+
+#todos_holder{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: 0.1px;
+    scroll-behavior: smooth;
+}
+
+
+.todo{
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0.5rem 0.5rem;
+animation: fade 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s both;
+position: relative;
+z-index: 1;
+
+}
+
+@keyframes fade {
+    0% {
+      
+        transform: scale(0);
+        opacity: 0;
+}
+100% {
+
+        transform: scale(1);
+        opacity: 1;
+}
+}
+
+.todo_text{
+color: var(--co1);
+font-family: 'Courier New', Courier, monospace;
+font-weight: 600;
+width: 70%;
+
+}
+
+.todo_btn{
+    display: flex;
+    justify-content: flex-end;
+    
+    position: relative;
+    width: 15%;
+    
+}
+
+
+
+
+.icon{
+
+    fill:var(--co1);
+    cursor: pointer;
+}
+
+
+
+.todo_btn_icon{
+position: relative;
+z-index: 1;
+}
+
+.todo_btn_icon:hover .todo_btn_other_con{
+    display: flex;
+}
+.todo_btn_icon:last-child:hover .todo_btn_other_con{
+    display: flex;
+}
+
+
+.todo:last-child:not(:first-child) .todo_btn_icon:last-child:hover .todo_btn_other_con{
+    display: flex;
+    position: absolute;
+    top: -35px;
+}
+
+
+.todo_btn_other_con{
+    z-index: 10021;
+    position: absolute;
+    display: none;
+    top: 10px;
+    right: 0;
+    
+    flex-direction: column;
+    
+    background-color:var(--co2);
+    border-radius: 10px;
+
+    
+}
+
+
+.todo_btn_other_con_btn{
+
+    border-radius: 5px;
+
+}
+
+.todo_btn_other_con_btn:hover{
+    background-color: rgba(31, 59, 68,0.2);
+    
+
+}
+
+#editing{
+    z-index: 2000;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 16px;
+
+}
+
+
+
+
+
+/* Buttons */
+
+.primary{
+    background-color: var(--co1);
+    border: none;
+    padding: 0.5rem;
+    color: var(--bg);
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+    height: 100%;
+}
+
+.text{
+    background-color: transparent;
+    border: none;
+    padding: 0.2rem 1rem;
+    color: var( --co1);
+    display: flex;;
+    width: auto;
+    justify-content:space-around;
+    align-items: center;
+    cursor: pointer;
+    
+    
+}
+
+.icon_btn{
+    background-color: transparent;
+    border: none;
+    padding: 0rem  0.2rem;
+    color: var( --co1);
+    display: flex;;
+    width: 100%;
+    height: 100%;;
+    justify-content:space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+.todo-check{
+    
+}
+.todo-check .todo_text h6{
+    text-decoration: line-through solid 2px var(--co1);
+}
+
+#editing .input{
+    background-color: var(--co1);
+    height: auto;
+    color: var(--bg);
+    width: 80%;
+    box-shadow: 1px 1px 3px 0px black;    
+}
+
+
+.editing_btn{
+    display: flex;
+    
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 80%;
+    margin-top: 0.5rem;
+}
+
+.editing_btn button{
+    font-weight:  500;
+    color: #1f3b44;
+}
+
