@@ -73,7 +73,7 @@ function App(){
             <h5 id="todo_header">TODO APP</h5>
 
             <div id="todo_input_con">
-                <input type={"text"} className="input" placeholder="Write Your Todos Here ..." value={inputValue} onChange={hanldeInput} onKeyDown={(e)=>{e.key=="Enter" ? handleButton() : null}} />
+                <input type={"text"} className="input"  id="todo_input" placeholder="Write Your Todos Here ..." value={inputValue} onChange={hanldeInput} onKeyDown={(e)=>{e.key=="Enter" ? handleButton() : null}} />
                 <Button inner="Add Todo" type="primary" event={handleButton}/>
             </div>
 
@@ -86,10 +86,10 @@ function App(){
 
 
                 {editing["status"] &&   <div id="editing">
-                    <input type={"text"} className="input" value={editing["value"]} onChange={(e)=>{setEditing((v)=>{return{...v,value:e.target.value}})}}/>
+                    <input type={"text"} id="todo_input" role={"editing_input"} className="input" value={editing["value"]} onChange={(e)=>{setEditing((v)=>{return{...v,value:e.target.value}})}}/>
                     <span className="editing_btn">
-                    <Button inner="Edit" type="text"  event={()=>{edit()}} />
-                    <Button inner="Cancel" type="text" event={(e)=>{setEditing((v)=>{return{...v,status:false}})}}/>
+                    <Button inner="Edit" type="text" role={"editing_btn"}  event={()=>{edit()}} />
+                    <Button inner="Cancel" type="text" role={"cancel_editing"} event={(e)=>{setEditing((v)=>{return{...v,status:false}})}}/>
                     </span>
                 </div>}
 
