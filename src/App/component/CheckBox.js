@@ -6,7 +6,7 @@ function CheckBox(props){
     return(
 <>
 <label className="container">   
-  <input type="checkbox" onChange={props.event} name ={"Checkbox " + props.name}/>
+  <input role={'checkbox'} type="checkbox" onChange={props.event} name ={"Checkbox " + props.name}/>
   <span className="checkmark"></span>
 </label>
 </>

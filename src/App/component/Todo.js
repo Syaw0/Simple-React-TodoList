@@ -22,7 +22,7 @@ function Todo(props){
             <div className="todo_btn">
                 <CheckBox event = {checked} name={props.id}/>
                 <Button  icon={<Edit_ico/>} role="editing" type="icon_btn" pclass="todo_btn_other_con_btn" event={props.event} name={"Edit "+props.id}/>
-                <Button  icon={<Delete_ico/>} type="icon_btn" pclass="todo_btn_other_con_btn" event={props.event} name={"Delete "+props.id}/>
+                <Button  icon={<Delete_ico/>} role='deletingItems' type="icon_btn" pclass="todo_btn_other_con_btn" event={props.event} name={"Delete "+props.id}/>
                 
     
             </div>
